@@ -1,10 +1,9 @@
-# Godot generated editor and import data
+# Godot generated editor data, import cache, and local export credentials
 .godot/
 .import/
 
-# Godot export configuration can contain machine-specific settings or secrets
+# Local export settings; export_presets.cfg is shared project configuration
 export.cfg
-export_presets.cfg
 
 # Native and platform build outputs
 *.tmp
