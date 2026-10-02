@@ -4,7 +4,9 @@ A lightweight Godot 4 project scaffold for a future casual 3D kart racer. This r
 
 ## Open source
 
-crazyracing is an open-source game project. Its code and project documentation are released under the [MIT License](LICENSE). Any future third-party art, audio, fonts, or other content may have separate license and attribution terms; check those notices before reuse.
+crazyracing is an open-source game project intended to be free to play. Its code and project documentation are released under the [MIT License](LICENSE). Original art and other creative assets may be licensed separately, and third-party content retains its own license and attribution terms; check the relevant notices before reuse.
+
+Optional cosmetic purchases, such as skins, may be offered to fund ongoing development. They are intended as voluntary support: core gameplay remains accessible without payment, and paid items will not provide competitive advantages. Purchase flows will be transparent and non-coercive.
 
 ## Requirements
 

@@ -4,10 +4,11 @@
 
 ### I. Open Source by Default
 Game source code and project documentation MUST remain publicly available under the MIT
-License. Contributions MUST include only material the contributor has the right to share.
-Third-party assets and code MUST retain their own license and attribution requirements; the
-project license MUST NOT be assumed to override those terms. This keeps the game inspectable,
-reusable, and safe to distribute.
+License. Original artwork and other creative assets MAY use separate licenses chosen by the
+project owner, and their terms MUST be stated clearly. Contributions MUST include only material
+the contributor has the right to share. Third-party assets and code MUST retain their own license
+and attribution requirements; the project license MUST NOT be assumed to override those terms.
+This keeps the game inspectable, reusable, and safe to distribute.
 
 ### II. Lightweight by Design
 New systems and dependencies MUST have a clear project need. Prefer Godot and GDScript built-in
@@ -28,6 +29,14 @@ by a demonstrated quality need and measured on target hardware before adoption.
 Gameplay systems MUST be introduced through a reviewed Spec Kit feature specification and plan.
 Until then, the project scaffold MUST remain free of kart, track, camera, physics, multiplayer,
 and game UI implementation. This keeps early architectural assumptions visible and reviewable.
+
+### VI. Fair Monetization
+The game MUST remain free to play, with core gameplay accessible without payment. Purchases MAY
+be offered as an optional way to support continued development, including cosmetic skins. Paid
+items MUST NOT provide competitive gameplay advantages. Purchase prompts and flows MUST be
+transparent and non-coercive; monetization MUST be presented as voluntary support, not a
+requirement or pressure to play. Monetization content MUST follow the project's open-source
+policies and clearly state any separate asset licenses.
 
 ## Platform and Technology Constraints
 
@@ -54,4 +63,4 @@ principles, and PATCH for clarifications that do not change policy. Feature plan
 reviews MUST be checked against these principles; exceptions MUST state their reason, scope, and
 duration for review by the project owner.
 
-**Version**: 1.0.0 | **Ratified**: 2026-10-02 | **Last Amended**: 2026-10-02
+**Version**: 1.1.0 | **Ratified**: 2026-10-02 | **Last Amended**: 2026-10-02
