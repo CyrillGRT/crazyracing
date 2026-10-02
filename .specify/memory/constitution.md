@@ -27,8 +27,7 @@ by a demonstrated quality need and measured on target hardware before adoption.
 
 ### V. No Gameplay Without a Feature Specification
 Gameplay systems MUST be introduced through a reviewed Spec Kit feature specification and plan.
-Until then, the project scaffold MUST remain free of kart, track, camera, physics, multiplayer,
-and game UI implementation. This keeps early architectural assumptions visible and reviewable.
+This keeps gameplay decisions visible and reviewable before implementation.
 
 ### VI. Fair Monetization
 The game MUST remain free to play, with core gameplay accessible without payment. Purchases MAY
@@ -37,6 +36,13 @@ items MUST NOT provide competitive gameplay advantages. Purchase prompts and flo
 transparent and non-coercive; monetization MUST be presented as voluntary support, not a
 requirement or pressure to play. Monetization content MUST follow the project's open-source
 policies and clearly state any separate asset licenses.
+
+### VII. Multiplayer Contracts and Authority
+Before implementation, every multiplayer-sensitive system MUST define its authority model,
+synchronization behavior, prediction and reconciliation behavior (or explicitly state why they
+do not apply), and failure behavior. Plans MUST identify who owns game-critical state; clients
+MUST NOT be presumed authoritative for that state. This keeps multiplayer decisions explicit
+without mandating a particular server, host, or networking architecture.
 
 ## Platform and Technology Constraints
 
@@ -63,4 +69,4 @@ principles, and PATCH for clarifications that do not change policy. Feature plan
 reviews MUST be checked against these principles; exceptions MUST state their reason, scope, and
 duration for review by the project owner.
 
-**Version**: 1.1.0 | **Ratified**: 2026-10-02 | **Last Amended**: 2026-10-02
+**Version**: 1.2.0 | **Ratified**: 2026-10-02 | **Last Amended**: 2026-10-02
