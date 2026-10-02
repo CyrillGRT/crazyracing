@@ -54,17 +54,16 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 ## Outline
 
-1. **Setup**: Run `.specify/scripts/bash/setup-plan.sh --json` from repo root and parse JSON for FEATURE_SPEC, IMPL_PLAN, FEATURE_DIR, BRANCH. For single quotes in args like "I'm Groot", use escape syntax: e.g 'I'\''m Groot' (or double-quote if possible: "I'm Groot").
-
-2. **Load context**: Read FEATURE_SPEC and `.specify/memory/constitution.md`. Load IMPL_PLAN template (already copied).
-
-3. **Execute plan workflow**: Follow the structure in IMPL_PLAN template to:
-   - Fill Technical Context (mark unknowns as "NEEDS CLARIFICATION")
-   - Fill Constitution Check section from constitution
-   - Evaluate gates (ERROR if violations unjustified)
-   - Phase 0: Generate research.md (resolve all NEEDS CLARIFICATION)
-   - Phase 1: Generate data-model.md, contracts/, quickstart.md
-   - Re-evaluate Constitution Check post-design
+1. Run `.specify/scripts/bash/setup-plan.sh --json`; use its `FEATURE_SPEC`, `IMPL_PLAN`, `FEATURE_DIR`, and `BRANCH` paths.
+2. Read the feature spec and `.specify/memory/constitution.md`. Use the resolved plan template.
+3. Write one concise `plan.md` that:
+   - Restates the outcome and scope in a few lines.
+   - Checks applicable Constitution constraints, including target platforms, performance, and multiplayer authority when relevant. Do not waive a MUST silently.
+   - Records only consequential technical decisions and trade-offs. Do not settle significant unresolved choices without user review.
+   - Describes implementation slices in spec-story order and identifies files only when known; do not invent a project structure for completeness.
+   - Maps acceptance criteria to focused verification on the required platforms.
+4. Create `research.md`, a data model, contracts, or a quickstart only when the feature needs that separate artifact. Do not create empty or generic companion documents. Do targeted research only for a material factual uncertainty; otherwise state a low-impact assumption or ask the user.
+5. Check the plan against the Constitution and feature scope before reporting it. Planning does not implement code.
 
 ## Mandatory Post-Execution Hooks
 
@@ -103,64 +102,11 @@ Check if `.specify/extensions.yml` exists in the project root.
 
 ## Completion Report
 
-Command ends after Phase 1 design. Report branch, IMPL_PLAN path, and generated artifacts.
-
-## Phases
-
-### Phase 0: Outline & Research
-
-1. **Extract unknowns from Technical Context** above:
-   - For each NEEDS CLARIFICATION → research task
-   - For each dependency → best practices task
-   - For each integration → patterns task
-
-2. **Generate and dispatch research agents**:
-
-   ```text
-   For each unknown in Technical Context:
-     Task: "Research {unknown} for {feature context}"
-   For each technology choice:
-     Task: "Find best practices for {tech} in {domain}"
-   ```
-
-3. **Consolidate findings** in `research.md` using format:
-   - Decision: [what was chosen]
-   - Rationale: [why chosen]
-   - Alternatives considered: [what else evaluated]
-
-**Output**: research.md with all NEEDS CLARIFICATION resolved
-
-### Phase 1: Design & Contracts
-
-**Prerequisites:** `research.md` complete
-
-1. **Extract entities from feature spec** → `data-model.md`:
-   - Entity name, fields, relationships
-   - Validation rules from requirements
-   - State transitions if applicable
-
-2. **Define interface contracts** (if project has external interfaces) → `/contracts/`:
-   - Identify what interfaces the project exposes to users or other systems
-   - Document the contract format appropriate for the project type
-   - Examples: public APIs for libraries, command schemas for CLI tools, endpoints for web services, grammars for parsers, UI contracts for applications
-   - Skip if project is purely internal (build scripts, one-off tools, etc.)
-
-3. **Create quickstart validation guide** → `quickstart.md`:
-   - Document runnable validation scenarios that prove the feature works end-to-end
-   - Include prerequisites, setup commands, test/run commands, and expected outcomes
-   - Use links or references to contracts and data model details instead of duplicating them
-   - Do not include full implementation code, model/service/controller bodies, migrations, or complete test suites
-   - Keep this artifact as a validation/run guide; implementation details belong in `tasks.md` and the implementation phase
-
-**Output**: data-model.md, /contracts/*, quickstart.md
-
-## Key rules
-
-- Use absolute paths for filesystem operations; use project-relative paths for references in documentation
-- ERROR on gate failures or unresolved clarifications
+Report the plan path, any companion artifacts created and why, unresolved decisions requiring user input, and readiness for task generation.
 
 ## Done When
 
-- [ ] Plan workflow executed and design artifacts generated
-- [ ] Extension hooks dispatched or skipped according to the rules in Mandatory Post-Execution Hooks above
-- [ ] Completion reported to user with branch, plan path, and generated artifacts
+- [ ] `plan.md` covers the required implementation decisions, Constitution constraints, and verification
+- [ ] Optional companion documents exist only where useful
+- [ ] Required extension hooks were dispatched or skipped per the hook rules
+- [ ] The user is given the opportunity to review the plan before task generation
