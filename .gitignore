@@ -1,0 +1,27 @@
+# Godot generated editor and import data
+.godot/
+.import/
+
+# Godot export configuration can contain machine-specific settings or secrets
+export.cfg
+export_presets.cfg
+
+# Native and platform build outputs
+*.tmp
+*.bak
+*.log
+*.apk
+*.aab
+*.ipa
+*.zip
+*.wasm
+*.pck
+*.app/
+
+# macOS metadata
+.DS_Store
+._*
+
+# IDE/editor metadata
+.vscode/
+.idea/
